@@ -1,4 +1,6 @@
 package com.books.crud.booksdCrud.cliente;
 
-public class ClienteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 }
