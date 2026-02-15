@@ -2,7 +2,7 @@ package com.books.crud.booksdCrud.cliente;
 import jakarta.persistence.Entity;
 import java.time.LocalDate;
 
-@Entity
+
 public class Cliente {
     private Long id;
     private String cpf;
