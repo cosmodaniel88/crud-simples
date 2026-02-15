@@ -1,14 +1,23 @@
 package com.books.crud.booksdCrud.cliente;
-import jakarta.persistence.Entity;
+import com.books.crud.booksdCrud.livro.Livro;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
+import java.util.List;
 
-
+@Entity
+@Table(name="cliente")
 public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String cpf;
     private String foto;
     private String nome;
     private LocalDate dataNascimento;
+
 
     public Cliente(){
 
