@@ -1,5 +1,6 @@
 package com.books.crud.booksdCrud.item;
 
+import com.books.crud.booksdCrud.compra.Compra;
 import com.books.crud.booksdCrud.livro.Livro;
 import jakarta.persistence.*;
 
@@ -18,6 +19,10 @@ public class Item {
     private Double valorUnitario;
     private Integer quantidade;
     private Double valorTotalItem;
+
+    @ManyToOne
+    @JoinColumn(name = "compra_id")
+    private Compra compra;
 
     public Item() {
     }

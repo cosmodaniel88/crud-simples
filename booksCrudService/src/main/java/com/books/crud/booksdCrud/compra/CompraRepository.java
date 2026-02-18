@@ -1,4 +1,6 @@
 package com.books.crud.booksdCrud.compra;
 
-public class CompraRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CompraRepository extends JpaRepository<Compra, Long> {
 }
