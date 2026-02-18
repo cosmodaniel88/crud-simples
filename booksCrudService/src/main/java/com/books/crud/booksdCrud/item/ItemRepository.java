@@ -1,4 +1,6 @@
 package com.books.crud.booksdCrud.item;
 
-public class ItemRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ItemRepository extends JpaRepository<Long, Item> {
 }
