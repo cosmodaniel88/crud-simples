@@ -2,15 +2,15 @@ package com.books.crud.booksdCrud.cliente;
 
 import java.time.LocalDate;
 
-public record ClienteDTO(
+public record ClienteResponseDTO(
         Long id,
         String cpf,
         String foto,
         String nome,
         LocalDate dataNascimento
 ) {
-    public static ClienteDTO deCliente(Cliente cliente){
-        return new ClienteDTO(
+    public static ClienteResponseDTO deClienteParaDTO(Cliente cliente){
+        return new ClienteResponseDTO(
                 cliente.getId(),
                 cliente.getCpf(),
                 cliente.getFoto(),
@@ -18,7 +18,7 @@ public record ClienteDTO(
                 cliente.getDataNascimento()
         );
     }
-    public static Cliente dtoParEntidade(ClienteDTO clienteDTO){
+    public static Cliente dtoParEntidade(ClienteResponseDTO clienteDTO){
         Cliente cliente = new Cliente();
         cliente.setCpf(clienteDTO.cpf);
         cliente.setNome(clienteDTO.nome);
