@@ -1,10 +1,9 @@
 package com.books.crud.booksdCrud.cliente;
 
 import jakarta.persistence.Entity;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +20,10 @@ public class ClienteController {
     @GetMapping()
     public List<ClienteResponseDTO> getTodosOsClientes(){
         return clienteService.getTodosOsClientes();
+    }
+
+    @PostMapping()
+    public ClienteResponseDTO criarNovoCliente(@Valid @RequestBody ClienteCriarDTO clienteCriarDTO){
+        return clienteService.cadastrarNovoCliente(clienteCriarDTO);
     }
 }

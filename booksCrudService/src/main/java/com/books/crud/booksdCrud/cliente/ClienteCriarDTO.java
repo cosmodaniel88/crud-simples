@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Past;
 import java.time.LocalDate;
 
 public record ClienteCriarDTO(
+
         @NotBlank (message = "CPF obrigatório")
         String cpf,
 
