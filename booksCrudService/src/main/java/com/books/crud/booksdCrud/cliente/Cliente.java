@@ -66,4 +66,16 @@ public class Cliente {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+    public void atualizar(String foto, String nome, LocalDate dataNascimento){
+        if(foto != null){
+            this.foto = foto;
+        }
+        if(nome != null){
+            this.nome = nome;
+        }
+        if(dataNascimento != null){
+            this.dataNascimento = dataNascimento;
+        }
+    }
 }
