@@ -24,4 +24,18 @@ public class ClienteService {
     public List<ClienteResponseDTO> getTodosOsClientes(){
         return clienteRepository.findAll().stream().map(clienteMapper::paraResponseDTO).toList();
     }
+
+    public ClienteResponseDTO cadastrarNovoCliente(ClienteCriarDTO clienteCriarDTO){
+
+        if(clienteCriarDTO == null){
+            throw new NullPointerException("Dados não enviados");
+        }
+
+        System.out.println(clienteCriarDTO);
+
+        Cliente cliente = clienteRepository.save(clienteMapper.paraEntidade(clienteCriarDTO));
+
+        return clienteMapper.paraResponseDTO(cliente);
+
+    }
 }
