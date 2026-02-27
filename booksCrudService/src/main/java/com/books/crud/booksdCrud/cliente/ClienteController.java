@@ -26,4 +26,9 @@ public class ClienteController {
     public ClienteResponseDTO criarNovoCliente(@Valid @RequestBody ClienteCriarDTO clienteCriarDTO){
         return clienteService.cadastrarNovoCliente(clienteCriarDTO);
     }
+
+    @PutMapping("/{id}")
+    public ClienteResponseDTO atualizarCliente(@PathVariable Long id, @Valid @RequestBody ClienteAtualizarDTO clienteAtualizarDTO){
+        return clienteService.atualizarCliente(id, clienteAtualizarDTO);
+    }
 }

@@ -38,4 +38,16 @@ public class ClienteService {
         return clienteMapper.paraResponseDTO(cliente);
 
     }
+
+    public ClienteResponseDTO atualizarCliente(Long id, ClienteAtualizarDTO clienteAtualizarDTO){
+            Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+            cliente.atualizar(
+                    clienteAtualizarDTO.foto(),
+                    clienteAtualizarDTO.nome(),
+                    clienteAtualizarDTO.dataNascimento()
+            );
+            return clienteMapper.paraResponseDTO(cliente);
+    }
+
 }
