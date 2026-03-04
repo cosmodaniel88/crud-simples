@@ -19,7 +19,7 @@ public class ClienteMapper {
         cliente.setCpf(clienteDTO.cpf());
         cliente.setNome(clienteDTO.nome());
         cliente.setFoto(clienteDTO.foto());
-        cliente.setDataNascimento(cliente.getDataNascimento());
+        cliente.setDataNascimento(clienteDTO.dataNascimento());
         return cliente;
     }
 }
