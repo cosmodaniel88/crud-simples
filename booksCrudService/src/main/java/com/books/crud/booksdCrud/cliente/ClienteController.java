@@ -41,4 +41,10 @@ public class ClienteController {
     public void deletarCliente(@PathVariable Long id){
         clienteService.deletarCliente(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void softDelete(@PathVariable Long id){
+        clienteService.softDeleteCliente(id);
+    }
+
 }

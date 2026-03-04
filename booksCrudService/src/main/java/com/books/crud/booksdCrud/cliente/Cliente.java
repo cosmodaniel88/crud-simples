@@ -13,11 +13,11 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Boolean ativo = true;
     private String cpf;
     private String foto;
     private String nome;
     private LocalDate dataNascimento;
-
 
     public Cliente(){
 
@@ -33,6 +33,13 @@ public class Cliente {
 
     public Long getId() {
         return id;
+    }
+
+    public boolean isAtivo(){
+        return this.ativo;
+    }
+    public void desativar(){
+        this.ativo = false;
     }
 
     public String getCpf() {
