@@ -22,6 +22,11 @@ public class ClienteController {
         return clienteService.getTodosOsClientes();
     }
 
+    @GetMapping("/{id}")
+    public ClienteResponseDTO buscarClientePorId(@PathVariable Long id){
+        return clienteService.getClientePorId(id);
+        }
+
     @PostMapping()
     public ClienteResponseDTO criarNovoCliente(@Valid @RequestBody ClienteCriarDTO clienteCriarDTO){
         return clienteService.cadastrarNovoCliente(clienteCriarDTO);
