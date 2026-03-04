@@ -36,4 +36,9 @@ public class ClienteController {
     public ClienteResponseDTO atualizarCliente(@PathVariable Long id, @Valid @RequestBody ClienteAtualizarDTO clienteAtualizarDTO){
         return clienteService.atualizarCliente(id, clienteAtualizarDTO);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarCliente(@PathVariable Long id){
+        clienteService.deletarCliente(id);
+    }
 }

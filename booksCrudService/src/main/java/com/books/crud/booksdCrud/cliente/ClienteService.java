@@ -50,4 +50,8 @@ public class ClienteService {
             return clienteMapper.paraResponseDTO(cliente);
     }
 
+    public void deletarCliente(Long id){
+        clienteRepository.deleteById(id);
+    }
+
 }
