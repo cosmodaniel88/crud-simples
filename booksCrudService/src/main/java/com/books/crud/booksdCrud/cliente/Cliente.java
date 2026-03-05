@@ -39,7 +39,15 @@ public class Cliente {
         return this.ativo;
     }
     public void desativar(){
-        this.ativo = false;
+        if(this.isAtivo()){
+            this.ativo = false;
+        }
+    }
+
+    public void ativar() {
+        if(!this.isAtivo()){
+            this.ativo = true;
+        }
     }
 
     public String getCpf() {
@@ -85,4 +93,5 @@ public class Cliente {
             this.dataNascimento = dataNascimento;
         }
     }
+
 }

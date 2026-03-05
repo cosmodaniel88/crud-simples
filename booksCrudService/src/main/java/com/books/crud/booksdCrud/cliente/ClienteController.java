@@ -32,19 +32,24 @@ public class ClienteController {
         return clienteService.cadastrarNovoCliente(clienteCriarDTO);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/atualizar")
     public ClienteResponseDTO atualizarCliente(@PathVariable Long id, @Valid @RequestBody ClienteAtualizarDTO clienteAtualizarDTO){
         return clienteService.atualizarCliente(id, clienteAtualizarDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/deletar")
     public void deletarCliente(@PathVariable Long id){
         clienteService.deletarCliente(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/desativar")
     public void softDelete(@PathVariable Long id){
         clienteService.softDeleteCliente(id);
+    }
+
+    @PutMapping("/{id}/ativar")
+    public ClienteResponseDTO ativar(@PathVariable Long id){
+        return clienteService.ativarCliente(id);
     }
 
 }
