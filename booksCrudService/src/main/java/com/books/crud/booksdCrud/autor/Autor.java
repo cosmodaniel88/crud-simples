@@ -3,6 +3,7 @@ package com.books.crud.booksdCrud.autor;
 import com.books.crud.booksdCrud.livro.Livro;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -44,7 +45,20 @@ public class Autor {
         return foto;
     }
 
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public void setUrl(String url) {
         this.foto = url;
+    }
+
+    public void atualizar(String foto, String nome){
+        if(foto != null){
+            this.foto = foto;
+        }
+        if(nome != null){
+            this.nome = nome;
+        }
     }
 }
