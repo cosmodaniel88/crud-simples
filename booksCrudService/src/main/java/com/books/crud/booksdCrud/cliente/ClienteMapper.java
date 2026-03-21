@@ -8,6 +8,7 @@ public class ClienteMapper {
     public ClienteResponseDTO paraResponseDTO(Cliente cliente){
         return new ClienteResponseDTO(
                 cliente.getId(),
+                cliente.isAtivo(),
                 cliente.getCpf(),
                 cliente.getFoto(),
                 cliente.getNome(),
