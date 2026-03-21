@@ -24,7 +24,7 @@ public class ClienteService {
     public List<ClienteResponseDTO> getTodosOsClientes(){
         return clienteRepository.findAll().stream().map(clienteMapper::paraResponseDTO).toList();
     }
-
+//Cadastrar novo cliente
     public ClienteResponseDTO cadastrarNovoCliente(ClienteCriarDTO clienteCriarDTO){
 
         if(clienteCriarDTO == null){
@@ -38,7 +38,7 @@ public class ClienteService {
         return clienteMapper.paraResponseDTO(cliente);
 
     }
-
+//Atualizar um cliente
     public ClienteResponseDTO atualizarCliente(Long id, ClienteAtualizarDTO clienteAtualizarDTO){
             Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
@@ -49,7 +49,7 @@ public class ClienteService {
             );
             return clienteMapper.paraResponseDTO(cliente);
     }
-
+//Deletar um cliente por id
     public void deletarCliente(Long id){
         clienteRepository.deleteById(id);
     }
