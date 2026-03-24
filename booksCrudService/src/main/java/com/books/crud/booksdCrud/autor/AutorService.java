@@ -1,6 +1,8 @@
 package com.books.crud.booksdCrud.autor;
 
 
+import com.books.crud.booksdCrud.cliente.Cliente;
+import com.books.crud.booksdCrud.cliente.ClienteResponseDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,6 +58,27 @@ public class AutorService {
     //Deletar um cliente por id
     public void deletarAutor(Long id){
         autorRepository.deleteById(id);
+    }
+
+    //Soft delete
+    public AutorResponseDTO softDeleteAutor(Long id){
+        Autor autor = autorRepository.findById(id).orElseThrow(() -> new RuntimeException("Autor não encontrado"));
+
+        if(autor.isAtivo()){
+            autor.desativar();
+        }
+        autorRepository.save(autor);
+        return autorMapper.paraResponseDTO(autor);
+    }
+    //Ativar Autor
+    public AutorResponseDTO ativarAutor(Long id){
+        Autor autor = autorRepository.findById(id).orElseThrow(()-> new RuntimeException(("Autor não encontrado")));
+
+        if(!autor.isAtivo()){
+            autor.ativar();
+        }
+        autorRepository.save(autor);
+        return autorMapper.paraResponseDTO(autor);
     }
 
 }

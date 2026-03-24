@@ -13,7 +13,7 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private boolean ativo;
     private String nome;
     private String foto;
 
@@ -25,12 +25,29 @@ public class Autor {
 
     public Autor(Long id, String nome, String foto) {
         this.id = id;
+        this.ativo = true;
         this.nome = nome;
         this.foto = foto;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public boolean isAtivo(){
+        return this.ativo;
+    }
+
+    public void ativar(){
+        if(!this.isAtivo()){
+            this.ativo = true;
+        }
+    }
+
+    public void desativar(){
+        if(this.isAtivo()){
+            this.ativo = false;
+        }
     }
 
     public String getNome() {
