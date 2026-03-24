@@ -9,6 +9,7 @@ public class AutorMapper {
     public AutorResponseDTO paraResponseDTO(Autor autor){
         return new AutorResponseDTO(
                 autor.getId(),
+                autor.isAtivo(),
                 autor.getNome(),
                 autor.getFoto()
         );

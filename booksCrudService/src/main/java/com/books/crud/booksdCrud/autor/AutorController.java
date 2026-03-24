@@ -46,4 +46,14 @@ public class AutorController {
         autorService.deletarAutor(id);
     }
 
+    //Soft delete no autor
+    @DeleteMapping("/{id}/desativar")
+    public AutorResponseDTO softDelete(@PathVariable Long id){
+        return autorService.softDeleteAutor(id);
+    }
+
+    @PutMapping("/{id}/ativar")
+    public AutorResponseDTO ativar(@PathVariable Long id){
+        return autorService.ativarAutor(id);
+    }
 }
