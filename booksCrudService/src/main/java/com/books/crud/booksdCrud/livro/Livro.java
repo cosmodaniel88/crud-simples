@@ -15,6 +15,7 @@ public class Livro {
     private Long id;
 
     private String nome;
+    private boolean ativo;
     private String capa;
     private Double valor;
 
@@ -36,6 +37,7 @@ public class Livro {
     public Livro(Long id, String nome, String capa, Double valor, String descricao, Integer estoque) {
         this.id = id;
         this.nome = nome;
+        this.ativo = true;
         this.capa = capa;
         this.valor = valor;
         this.descricao = descricao;
@@ -52,6 +54,21 @@ public class Livro {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public boolean isAtivo(){
+        return this.ativo;
+    }
+
+    public void desativar(){
+        if(this.isAtivo()){
+            this.ativo = false;
+        }
+    }
+    public void ativar(){
+        if(!this.isAtivo()){
+            this.ativo = true;
+        }
     }
 
     public String getCapa() {
@@ -84,5 +101,20 @@ public class Livro {
 
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
+    }
+
+    public void atualizar(String nome, String capa, Double valor, String descricao) {
+        if(nome != null){
+            this.nome = nome;
+        }
+        if(capa != null){
+        this.capa = capa;
+        }
+        if(valor != null){
+        this.valor = valor;
+       }
+        if(descricao != null){
+        this.descricao = descricao;
+        }
     }
 }
