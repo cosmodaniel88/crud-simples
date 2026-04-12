@@ -32,6 +32,7 @@ public class Livro {
 
 
     public Livro() {
+        this.ativo = true;
     }
 
     public Livro(Long id, String nome, String capa, Double valor, String descricao, Integer estoque) {
