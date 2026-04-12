@@ -16,6 +16,7 @@ public class AutorMapper {
     }
     public Autor paraEntidade(AutorCriarDTO autorDTO){
         Autor autor = new Autor();
+
         autor.setNome(autorDTO.nome());
         autor.setFoto(autorDTO.foto());
 
