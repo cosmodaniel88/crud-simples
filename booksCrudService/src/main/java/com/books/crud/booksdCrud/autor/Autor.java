@@ -21,6 +21,7 @@ public class Autor {
     private List<Livro> livros;
 
     public Autor() {
+        this.ativo = true;
     }
 
     public Autor(Long id, String nome, String foto) {
@@ -39,15 +40,11 @@ public class Autor {
     }
 
     public void ativar(){
-        if(!this.isAtivo()){
-            this.ativo = true;
-        }
+        if(!this.isAtivo()) this.ativo = true;
     }
 
     public void desativar(){
-        if(this.isAtivo()){
-            this.ativo = false;
-        }
+        if(this.isAtivo()) this.ativo = false;
     }
 
     public String getNome() {

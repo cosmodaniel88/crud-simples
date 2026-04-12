@@ -27,8 +27,6 @@ public class Compra {
     private LocalDateTime momentoDaCompra;
 
 
-
-
     public Compra() {
     }
 
