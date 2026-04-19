@@ -18,13 +18,12 @@ public class ItemService {
         this.livroRepository = livroRepository;
     }
 
-    public void cadastrarNovoItem(ItemCriarDTO itemCriarDTO){
+    public void cadastrarNovoItem(RegistrarItemDTO registrarItemDTO){
 
-        Livro livro = livroRepository.findById(itemCriarDTO.livroId()).
+        Livro livro = livroRepository.findById(registrarItemDTO.livroId()).
                 orElseThrow(() -> new RuntimeException("Livro não encontrado"));
 
-
-        Item item = itemMapper.paraEntidade(itemCriarDTO, livro);
+        Item item = itemMapper.paraEntidade(registrarItemDTO, livro);
 
         itemRepository.save(item);
 

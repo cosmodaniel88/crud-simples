@@ -46,29 +46,29 @@ public class Livro {
         this.estoque = estoque;
     }
 
-    public Long getId() {
+    public Long buscarId() {
         return id;
     }
 
-    public String getNome() {
+    public String buscarNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void definirNome(String nome) {
         this.nome = nome;
     }
 
-    public boolean isAtivo(){
+    public boolean estaAtivo(){
         return this.ativo;
     }
 
     public void desativar(){
-        if(this.isAtivo()){
+        if(this.estaAtivo()){
             this.ativo = false;
         }
     }
     public void ativar(){
-        if(!this.isAtivo()){
+        if(!this.estaAtivo()){
             this.ativo = true;
         }
     }
@@ -77,7 +77,7 @@ public class Livro {
         return capa;
     }
 
-    public void setCapa(String capa) {
+    public void definirCapa(String capa) {
         this.capa = capa;
     }
 
@@ -85,7 +85,7 @@ public class Livro {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void definirValor(BigDecimal valor) {
         this.valor = valor;
     }
 
@@ -100,11 +100,11 @@ public class Livro {
     public Integer getEstoque() {
         return estoque;
     }
-
+/*
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
     }
-
+*/
     public void atualizar(String nome, String capa, BigDecimal valor, String descricao) {
         if(nome != null){
             this.nome = nome;

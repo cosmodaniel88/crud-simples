@@ -16,13 +16,13 @@ public class LivroService {
     }
 
     //buscar livro por id
-    public LivroResponseDTO getLivroPorId(Long id){
+    public LivroResponseDTO buscarLivroPorId(Long id){
         Livro livro = livroRepository.findById(id).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
         return livroMapper.paraResponseDTO(livro);
     }
 
     //listar todos os livros
-    public List<LivroResponseDTO> getTodosOsLivor(){
+    public List<LivroResponseDTO> buscarTodosOsLivros(){
         return livroRepository.findAll().stream().map(livroMapper::paraResponseDTO).toList();
     }
 
@@ -60,7 +60,7 @@ public class LivroService {
     public LivroResponseDTO softDeleteLivro(Long id){
         Livro livro = livroRepository.findById(id).orElseThrow(() -> new NullPointerException("Livro não encontrado"));
 
-        if(livro.isAtivo()){
+        if(livro.estaAtivo()){
             livro.desativar();
         }
         return livroMapper.paraResponseDTO(livroRepository.save(livro));
@@ -69,7 +69,7 @@ public class LivroService {
     //Ativar
     public LivroResponseDTO ativarLivro(Long id){
         Livro livro = livroRepository.findById(id).orElseThrow(() -> new NullPointerException("Livro não encontrado"));
-        if(!livro.isAtivo()){
+        if(!livro.estaAtivo()){
             livro.ativar();
         }
 
