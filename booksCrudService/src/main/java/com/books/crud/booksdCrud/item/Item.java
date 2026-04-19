@@ -4,6 +4,8 @@ import com.books.crud.booksdCrud.compra.Compra;
 import com.books.crud.booksdCrud.livro.Livro;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "item")
 public class Item {
@@ -16,9 +18,9 @@ public class Item {
     @JoinColumn(name = "livro_id")
     private Livro livro;
 
-    private Double valorUnitario;
+    private BigDecimal valorUnitario;
     private Integer quantidade;
-    private Double valorTotalItem;
+    private BigDecimal valorTotalItem;
 
     @ManyToOne
     @JoinColumn(name = "compra_id")
@@ -27,32 +29,35 @@ public class Item {
     public Item() {
     }
 
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
     public Item(Long id, Livro livro, Integer quantidade) {
         this.id = id;
         this.livro = livro;
         this.quantidade = quantidade;
-        this.definirValorUnitario(livro);
+        this.setLivro(livro);
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setLivro(Livro livro){
+        this.livro = livro;
+        this.valorUnitario = livro.getValor();
+        this.valorTotalItem = this.valorUnitario.multiply(BigDecimal.valueOf(quantidade));
+    }
     public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
 
-    public Double getValorUnitario() {
+    public BigDecimal getValorUnitario() {
         return valorUnitario;
     }
 
-    public void definirValorUnitario(Livro livro) {
-        this.valorUnitario = livro.getValor();
-    }
 
     public Integer getQuantidade() {
         return quantidade;
@@ -62,11 +67,8 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    public Double getValorTotalItem() {
+    public BigDecimal getValorTotalItem() {
         return valorTotalItem;
     }
 
-    public void definirValorTotal(Double valorTotalItem) {
-        this.valorTotalItem = valorTotalItem;
-    }
 }

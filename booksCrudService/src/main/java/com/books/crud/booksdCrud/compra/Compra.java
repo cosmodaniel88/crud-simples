@@ -4,6 +4,8 @@ import com.books.crud.booksdCrud.cliente.Cliente;
 import com.books.crud.booksdCrud.item.Item;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,22 +23,41 @@ public class Compra {
     private Cliente cliente;
 
     @OneToMany(mappedBy = "compra")
-    private List<Item> items = new ArrayList();
+    private List<Item> itens = new ArrayList();
 
-    private Double valorTotalCompra;
-    private LocalDateTime momentoDaCompra;
+    private BigDecimal valorTotalCompra;
+    private Instant momentoDaCompra;
 
 
     public Compra() {
     }
 
+    public void adicionarItem(Item item) {
+        item.setCompra(this);
+        itens.add(item);
+
+        //todas as vezes que adicionar um novo item, o sistema chama o método recalcularTotal
+        recalcularTotal();
+
+    }
+
+    public void recalcularTotal(){
+        //zeramos o valor total
+        this.valorTotalCompra = BigDecimal.ZERO;
+        //Percorremos cada item da lista de itens
+        for(Item item : itens){
+            //incrementamos o valor ao valorTotalCompra de cada item
+            this.valorTotalCompra = this.valorTotalCompra.add(item.getValorTotalItem());
+        }
+
+    }
 
     public Long getId() {
         return id;
     }
 
     public List<Item> getItems() {
-        return items;
+        return itens;
     }
 
     public Cliente getCliente() {
@@ -47,19 +68,14 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public Double getValorTotalCompra() {
+    public BigDecimal getValorTotalCompra() {
         return valorTotalCompra;
     }
 
-    public void setValorTotalCompra(Double valorTotalCompra) {
-        this.valorTotalCompra = valorTotalCompra;
-    }
-
-    public LocalDateTime getMomentoDaCompra() {
+    public Instant getMomentoDaCompra() {
         return momentoDaCompra;
     }
-
-    public void setMomentoDaCompra(LocalDateTime momentoDaCompra) {
-        this.momentoDaCompra = momentoDaCompra;
+    public void registrarMomentoDaCompra(){
+        this.momentoDaCompra = Instant.now();
     }
-}
+    }
