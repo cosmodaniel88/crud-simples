@@ -3,6 +3,7 @@ package com.books.crud.booksdCrud.livro;
 import com.books.crud.booksdCrud.autor.Autor;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Livro {
     private String nome;
     private boolean ativo;
     private String capa;
-    private Double valor;
+    private BigDecimal valor;
 
     @ManyToMany
     @JoinTable(
@@ -35,7 +36,7 @@ public class Livro {
         this.ativo = true;
     }
 
-    public Livro(Long id, String nome, String capa, Double valor, String descricao, Integer estoque) {
+    public Livro(Long id, String nome, String capa, BigDecimal valor, String descricao, Integer estoque) {
         this.id = id;
         this.nome = nome;
         this.ativo = true;
@@ -80,11 +81,11 @@ public class Livro {
         this.capa = capa;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
@@ -104,7 +105,7 @@ public class Livro {
         this.estoque = estoque;
     }
 
-    public void atualizar(String nome, String capa, Double valor, String descricao) {
+    public void atualizar(String nome, String capa, BigDecimal valor, String descricao) {
         if(nome != null){
             this.nome = nome;
         }

@@ -3,6 +3,8 @@ package com.books.crud.booksdCrud.livro;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
+
 public record LivroCadastrarDTO(
 
     @NotBlank(message = "Favor, informe o nome do livro")
@@ -11,7 +13,7 @@ public record LivroCadastrarDTO(
     String capa,
 
     @NotNull(message = "Favor, informe o valor do livro")
-    Double valor,
+    BigDecimal valor,
 
     String descricao
 ) {
