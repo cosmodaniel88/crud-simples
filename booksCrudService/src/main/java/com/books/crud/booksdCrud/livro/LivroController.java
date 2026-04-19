@@ -20,7 +20,7 @@ public class LivroController {
     //Listar todos os livros'
     @GetMapping()
     public List<LivroResponseDTO> buscarTodosOsLivros(){
-        return livroService.getTodosOsLivor();
+        return livroService.buscarTodosOsLivros();
     }
 
     //Buscar autor por id
