@@ -8,9 +8,9 @@ public class LivroMapper {
 
     public LivroResponseDTO paraResponseDTO(Livro livro){
         return new LivroResponseDTO(
-                livro.getId(),
-                livro.getNome(),
-                livro.isAtivo(),
+                livro.buscarId(),
+                livro.buscarNome(),
+                livro.estaAtivo(),
                 livro.getCapa(),
                 livro.getValor(),
                 livro.getDescricao(),
@@ -19,9 +19,9 @@ public class LivroMapper {
     }
     public Livro paraEntidade(LivroCadastrarDTO livroDTO){
         Livro livro = new Livro();
-        livro.setNome(livroDTO.nome());
-        livro.setCapa(livroDTO.capa());
-        livro.setValor(livroDTO.valor());
+        livro.definirNome(livroDTO.nome());
+        livro.definirCapa(livroDTO.capa());
+        livro.definirValor(livroDTO.valor());
         livro.setDescricao(livroDTO.descricao());
 
         return livro;

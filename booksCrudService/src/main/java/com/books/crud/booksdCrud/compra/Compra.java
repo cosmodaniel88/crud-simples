@@ -36,7 +36,6 @@ public class Compra {
         item.setCompra(this);
         itens.add(item);
 
-        //todas as vezes que adicionar um novo item, o sistema chama o método recalcularTotal
         recalcularTotal();
 
     }
@@ -47,7 +46,7 @@ public class Compra {
         //Percorremos cada item da lista de itens
         for(Item item : itens){
             //incrementamos o valor ao valorTotalCompra de cada item
-            this.valorTotalCompra = this.valorTotalCompra.add(item.getValorTotalItem());
+            this.valorTotalCompra = this.valorTotalCompra.add(item.buscarValorTotalItem());
         }
 
     }
@@ -56,23 +55,23 @@ public class Compra {
         return id;
     }
 
-    public List<Item> getItems() {
+    public List<Item> buscarItens() {
         return itens;
     }
 
-    public Cliente getCliente() {
+    public Cliente buscarCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void definirCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public BigDecimal getValorTotalCompra() {
+    public BigDecimal BuscarvalorTotalCompra() {
         return valorTotalCompra;
     }
 
-    public Instant getMomentoDaCompra() {
+    public Instant buscarMomentoDaCompra() {
         return momentoDaCompra;
     }
     public void registrarMomentoDaCompra(){

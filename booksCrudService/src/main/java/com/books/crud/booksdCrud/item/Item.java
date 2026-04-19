@@ -63,11 +63,11 @@ public class Item {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void definirQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 
-    public BigDecimal getValorTotalItem() {
+    public BigDecimal buscarValorTotalItem() {
         return valorTotalItem;
     }
 

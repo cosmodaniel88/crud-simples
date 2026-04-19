@@ -3,12 +3,10 @@ package com.books.crud.booksdCrud.compra;
 import com.books.crud.booksdCrud.cliente.Cliente;
 import com.books.crud.booksdCrud.cliente.ClienteRepository;
 import com.books.crud.booksdCrud.item.Item;
-import com.books.crud.booksdCrud.item.ItemCriarDTO;
+import com.books.crud.booksdCrud.item.RegistrarItemDTO;
 import com.books.crud.booksdCrud.livro.Livro;
 import com.books.crud.booksdCrud.livro.LivroRepository;
 import org.springframework.stereotype.Service;
-
-import java.time.Instant;
 
 @Service
 public class CompraService {
@@ -32,14 +30,14 @@ public class CompraService {
         Cliente cliente = clienteRepository.findById(registrarCompraDTO.clienteId())
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
-        compra.setCliente(cliente);
+        compra.definirCliente(cliente);
 
-        for(ItemCriarDTO itemDTO : registrarCompraDTO.itens()){
+        for(RegistrarItemDTO itemDTO : registrarCompraDTO.itens()){
             Livro livro = livroRepository.findById(itemDTO.livroId())
                     .orElseThrow(() -> new NullPointerException("Livro não encontrado"));
 
             Item item = new Item();
-            item.setQuantidade(itemDTO.quantidade());
+            item.definirQuantidade(itemDTO.quantidade());
             item.setLivro(livro);
             compra.adicionarItem(item);
 

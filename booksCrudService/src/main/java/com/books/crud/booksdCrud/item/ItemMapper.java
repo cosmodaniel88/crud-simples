@@ -1,10 +1,7 @@
 package com.books.crud.booksdCrud.item;
 
 import com.books.crud.booksdCrud.livro.Livro;
-import com.books.crud.booksdCrud.livro.LivroMapper;
 import com.books.crud.booksdCrud.livro.LivroRepository;
-import com.books.crud.booksdCrud.livro.LivroService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,18 +16,18 @@ public class ItemMapper {
     public ItemDTOResponse paraResponseDTO(Item item){
             return new ItemDTOResponse(
                     item.getId(),
-                    item.getLivro().getId(),
-                    item.getLivro().getNome(),
+                    item.getLivro().buscarId(),
+                    item.getLivro().buscarNome(),
                     item.getValorUnitario(),
                     item.getQuantidade(),
-                    item.getValorTotalItem()
+                    item.buscarValorTotalItem()
             );
     }
 
-    public Item paraEntidade(ItemCriarDTO itemDTO, Livro livro){
+    public Item paraEntidade(RegistrarItemDTO itemDTO, Livro livro){
 
         Item item = new Item();
-        item.setQuantidade(itemDTO.quantidade());
+        item.definirQuantidade(itemDTO.quantidade());
         item.setLivro(livro);
 
         return item;

@@ -19,16 +19,15 @@ public class LivroController {
 
     //Listar todos os livros'
     @GetMapping()
-    public List<LivroResponseDTO> getTodosOsLivros(){
+    public List<LivroResponseDTO> buscarTodosOsLivros(){
         return livroService.getTodosOsLivor();
     }
 
     //Buscar autor por id
     @GetMapping("/{id}")
     public LivroResponseDTO buscarLivroPorId(@PathVariable Long id){
-        return livroService.getLivroPorId(id);
+        return livroService.buscarLivroPorId(id);
     }
-
 
     //Cadastrar novo autor
     @PostMapping()

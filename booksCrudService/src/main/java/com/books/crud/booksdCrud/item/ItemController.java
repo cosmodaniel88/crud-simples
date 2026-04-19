@@ -17,9 +17,9 @@ public class ItemController {
     }
 
     @PostMapping
-    public void cadastrarItem(@RequestBody @Valid ItemCriarDTO itemCriarDTO){
+    public void cadastrarItem(@RequestBody @Valid RegistrarItemDTO registrarItemDTO){
 
-        itemService.cadastrarNovoItem(itemCriarDTO);
+        itemService.cadastrarNovoItem(registrarItemDTO);
 
     }
 }
