@@ -25,9 +25,15 @@ public class Compra {
     @OneToMany(mappedBy = "compra")
     private List<Item> itens = new ArrayList();
 
+    @Column(nullable = false)
     private BigDecimal valorTotalCompra;
+
+    @Column(nullable = false)
     private Instant momentoDaCompra;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 30, name = "compra_status", nullable = false)
+    private CompraStatus compraStatus;
 
     public Compra() {
     }
@@ -50,6 +56,7 @@ public class Compra {
         }
 
     }
+
 
     public Long getId() {
         return id;
@@ -74,7 +81,23 @@ public class Compra {
     public Instant buscarMomentoDaCompra() {
         return momentoDaCompra;
     }
+
     public void registrarMomentoDaCompra(){
         this.momentoDaCompra = Instant.now();
+    }
+
+    public void registrarCompra(){
+        this.compraStatus = CompraStatus.ABERTA;
+    }
+
+    public void aguardarPagamento(){
+        this.compraStatus = CompraStatus.AGUARDANDO_PAGAMENTO;
+    }
+
+    public void finalizarCompra(){
+        this.compraStatus = CompraStatus.FINALIZADA;
+    }
+    public void cancelarCompra(){
+        this.compraStatus = CompraStatus.CANCELADA;
     }
     }

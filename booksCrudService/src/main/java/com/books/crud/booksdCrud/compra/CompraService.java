@@ -42,6 +42,7 @@ public class CompraService {
             compra.adicionarItem(item);
 
         }
+        compra.registrarCompra();
 
         return compraRepository.save(compra);
 
