@@ -47,4 +47,12 @@ public class CompraService {
         return compraRepository.save(compra);
 
     }
+
+    public void cancelarCompra(Compra compra) {
+        if(compra.pegarCompraStatus() == CompraStatus.CANCELADA || compra.pegarCompraStatus() == CompraStatus.FINALIZADA){
+            throw new IllegalStateException("Não é possivel realizar o cancelamento de compras com status Cancelada ou Finaliada");
+        }
+        compra.cancelarCompra();
+
+    }
 }

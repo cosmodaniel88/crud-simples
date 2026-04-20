@@ -90,6 +90,10 @@ public class Compra {
         this.compraStatus = CompraStatus.ABERTA;
     }
 
+    public CompraStatus pegarCompraStatus() {
+        return this.compraStatus;
+    }
+
     public void aguardarPagamento(){
         this.compraStatus = CompraStatus.AGUARDANDO_PAGAMENTO;
     }
