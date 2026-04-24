@@ -62,23 +62,23 @@ public class Compra {
         return id;
     }
 
-    public List<Item> buscarItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
-    public Cliente buscarCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void definirCliente(Cliente cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public BigDecimal BuscarvalorTotalCompra() {
+    public BigDecimal getValorTotalCompra() {
         return valorTotalCompra;
     }
 
-    public Instant buscarMomentoDaCompra() {
+    public Instant getMomentoDaCompra() {
         return momentoDaCompra;
     }
 
@@ -90,7 +90,7 @@ public class Compra {
         this.compraStatus = CompraStatus.ABERTA;
     }
 
-    public CompraStatus pegarCompraStatus() {
+    public CompraStatus getCompraStatus() {
         return this.compraStatus;
     }
 
