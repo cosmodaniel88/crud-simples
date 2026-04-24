@@ -18,7 +18,7 @@ public class AutorController {
 
     //Buscar autor por id
     @GetMapping("/{id}")
-    public AutorResponseDTO buscarAutorPorId(@PathVariable Long id){
+    public AutorResponseDTO getAutorPorId(@PathVariable Long id){
         return autorService.getAutorPorId(id);
     }
 

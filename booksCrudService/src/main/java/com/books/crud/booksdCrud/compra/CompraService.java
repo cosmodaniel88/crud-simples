@@ -41,7 +41,7 @@ public class CompraService {
                     .orElseThrow(() -> new NullPointerException("Livro não encontrado"));
 
             Item item = new Item();
-            item.definirQuantidade(itemDTO.quantidade());
+            item.setQuantidade(itemDTO.quantidade());
             item.setLivro(livro);
             compra.adicionarItem(item);
 
@@ -52,7 +52,7 @@ public class CompraService {
 
     }
 
-    public List<CompraResponseDTO> buscarComprasPorCliente(Long clienteId){
+    public List<CompraResponseDTO> getComprasPorCliente(Long clienteId){
         if(!clienteRepository.existsById(clienteId)){
             throw new NullPointerException("Cliente não encontrado");
         }

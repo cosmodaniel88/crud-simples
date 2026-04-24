@@ -22,6 +22,6 @@ public class CompraController {
 
     @GetMapping("/{clienteId}/cliente")
     public List<CompraResponseDTO> listarComprasPorCliente(@PathVariable Long clienteId){
-        return compraService.buscarComprasPorCliente(clienteId);
+        return compraService.getComprasPorCliente(clienteId);
     }
 }

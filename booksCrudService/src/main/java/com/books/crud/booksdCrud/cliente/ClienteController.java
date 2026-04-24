@@ -23,7 +23,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ClienteResponseDTO buscarClientePorId(@PathVariable Long id){
+    public ClienteResponseDTO getClientePorId(@PathVariable Long id){
         return clienteService.getClientePorId(id);
         }
 

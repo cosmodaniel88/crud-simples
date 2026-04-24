@@ -16,18 +16,18 @@ public class ItemMapper {
     public ItemDTOResponse paraResponseDTO(Item item){
             return new ItemDTOResponse(
                     item.getId(),
-                    item.getLivro().buscarId(),
-                    item.getLivro().buscarNome(),
+                    item.getLivro().getId(),
+                    item.getLivro().getNome(),
                     item.getValorUnitario(),
                     item.getQuantidade(),
-                    item.buscarValorTotalItem()
+                    item.getValorTotalItem()
             );
     }
 
     public Item paraEntidade(RegistrarItemDTO itemDTO, Livro livro){
 
         Item item = new Item();
-        item.definirQuantidade(itemDTO.quantidade());
+        item.setQuantidade(itemDTO.quantidade());
         item.setLivro(livro);
 
         return item;
