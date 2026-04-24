@@ -46,15 +46,15 @@ public class Livro {
         this.estoque = estoque;
     }
 
-    public Long buscarId() {
+    public Long getId() {
         return id;
     }
 
-    public String buscarNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void definirNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -77,7 +77,7 @@ public class Livro {
         return capa;
     }
 
-    public void definirCapa(String capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
 
@@ -85,7 +85,7 @@ public class Livro {
         return valor;
     }
 
-    public void definirValor(BigDecimal valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

@@ -16,13 +16,13 @@ public class LivroService {
     }
 
     //buscar livro por id
-    public LivroResponseDTO buscarLivroPorId(Long id){
+    public LivroResponseDTO getLivroPorId(Long id){
         Livro livro = livroRepository.findById(id).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
         return livroMapper.paraResponseDTO(livro);
     }
 
     //listar todos os livros
-    public List<LivroResponseDTO> buscarTodosOsLivros(){
+    public List<LivroResponseDTO> getTodosOsLivros(){
         return livroRepository.findAll().stream().map(livroMapper::paraResponseDTO).toList();
     }
 

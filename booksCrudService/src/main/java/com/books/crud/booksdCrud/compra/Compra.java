@@ -52,7 +52,7 @@ public class Compra {
         //Percorremos cada item da lista de itens
         for(Item item : itens){
             //incrementamos o valor ao valorTotalCompra de cada item
-            this.valorTotalCompra = this.valorTotalCompra.add(item.buscarValorTotalItem());
+            this.valorTotalCompra = this.valorTotalCompra.add(item.getValorTotalItem());
         }
 
     }

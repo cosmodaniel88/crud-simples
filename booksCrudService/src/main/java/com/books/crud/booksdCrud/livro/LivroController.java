@@ -19,14 +19,14 @@ public class LivroController {
 
     //Listar todos os livros'
     @GetMapping()
-    public List<LivroResponseDTO> buscarTodosOsLivros(){
-        return livroService.buscarTodosOsLivros();
+    public List<LivroResponseDTO> getTodosOsLivros(){
+        return livroService.getTodosOsLivros();
     }
 
     //Buscar autor por id
     @GetMapping("/{id}")
-    public LivroResponseDTO buscarLivroPorId(@PathVariable Long id){
-        return livroService.buscarLivroPorId(id);
+    public LivroResponseDTO getLivroPorId(@PathVariable Long id){
+        return livroService.getLivroPorId(id);
     }
 
     //Cadastrar novo autor
