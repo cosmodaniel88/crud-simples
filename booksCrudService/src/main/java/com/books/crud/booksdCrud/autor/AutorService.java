@@ -3,6 +3,9 @@ package com.books.crud.booksdCrud.autor;
 
 import com.books.crud.booksdCrud.cliente.Cliente;
 import com.books.crud.booksdCrud.cliente.ClienteResponseDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +28,19 @@ public class AutorService {
     }
 
     //listar todos os autores
-    public List<AutorResponseDTO> getTodosOsAutores(){
-        return autorRepository.findAll().stream().map(autorMapper::paraResponseDTO).toList();
+    public Page<AutorResponseDTO> getTodosOsAutores(Pageable pageable){
+
+        //boas práticas
+
+        int tamanhoMaximo = Math.min(pageable.getPageSize(), 50);
+
+        Pageable customPageable = PageRequest.of(
+                pageable.getPageNumber(),
+                tamanhoMaximo,
+                pageable.getSort()
+        );
+
+        return autorRepository.findAll(customPageable).map(autorMapper::paraResponseDTO);
     }
 
     //Cadastrar novo autor
