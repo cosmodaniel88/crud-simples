@@ -1,6 +1,8 @@
 package com.books.crud.booksdCrud.autor;
 
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -24,8 +26,8 @@ public class AutorController {
 
     //Listar todos os autores
     @GetMapping()
-    public List<AutorResponseDTO> getTodosOsAutores(){
-        return autorService.getTodosOsAutores();
+    public Page<AutorResponseDTO> getTodosOsAutores(Pageable pageable){
+        return autorService.getTodosOsAutores(pageable);
     }
 
     //Cadastrar novo autor
