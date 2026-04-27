@@ -1,5 +1,8 @@
 package com.books.crud.booksdCrud.cliente;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,9 +24,24 @@ public class ClienteService {
         return clienteMapper.paraResponseDTO(cliente);
     }
 //Lista todos os clientes
-    public List<ClienteResponseDTO> getTodosOsClientes(){
-        return clienteRepository.findAll().stream().map(clienteMapper::paraResponseDTO).toList();
+
+    public Page<ClienteResponseDTO> getTodosClientes(Pageable pageable){
+
+        //Pegue o menor valor entre o que foi recebido na paginação e 50
+        int tamanhoMaximo = Math.min(pageable.getPageSize(), 50);
+
+        Pageable customPageable = PageRequest.of(
+                //número da página
+                pageable.getPageNumber(),
+                //tamanho máximo da página
+                tamanhoMaximo,
+                //Tipo de ordenação
+                pageable.getSort()
+        );
+
+        return clienteRepository.findAll(customPageable).map(clienteMapper::paraResponseDTO);
     }
+
 //Cadastrar novo cliente
     public ClienteResponseDTO cadastrarNovoCliente(ClienteCriarDTO clienteCriarDTO){
 

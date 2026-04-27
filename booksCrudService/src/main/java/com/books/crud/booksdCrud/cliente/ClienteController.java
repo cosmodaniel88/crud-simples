@@ -2,13 +2,15 @@ package com.books.crud.booksdCrud.cliente;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     private final ClienteService clienteService;
@@ -18,8 +20,8 @@ public class ClienteController {
     }
 
     @GetMapping()
-    public List<ClienteResponseDTO> getTodosOsClientes(){
-        return clienteService.getTodosOsClientes();
+    public Page<ClienteResponseDTO> getTodosOsClientes(Pageable pageable){
+        return clienteService.getTodosClientes(pageable);
     }
 
     @GetMapping("/{id}")
