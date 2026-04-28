@@ -1,5 +1,8 @@
 package com.books.crud.booksdCrud.livro;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,8 +25,17 @@ public class LivroService {
     }
 
     //listar todos os livros
-    public List<LivroResponseDTO> getTodosOsLivros(){
-        return livroRepository.findAll().stream().map(livroMapper::paraResponseDTO).toList();
+    public Page<LivroResponseDTO> getTodosOsLivros(Pageable pageable){
+
+        int tamanhoMaximo = Math.min(pageable.getPageSize(), 50);
+
+        Pageable customPageable = PageRequest.of(
+                pageable.getPageNumber(),
+                tamanhoMaximo,
+                pageable.getSort()
+        );
+
+        return livroRepository.findAll(customPageable).map(livroMapper::paraResponseDTO);
     }
 
     //cadastrar novo livro
