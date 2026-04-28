@@ -1,6 +1,8 @@
 package com.books.crud.booksdCrud.compra;
 
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class CompraController {
     }
 
     @GetMapping("/{clienteId}/cliente")
-    public List<CompraResponseDTO> listarComprasPorCliente(@PathVariable Long clienteId){
-        return compraService.getComprasPorCliente(clienteId);
+    public Page<CompraResponseDTO> listarComprasPorCliente(@PathVariable Long clienteId, Pageable pageable) {
+        return compraService.getComprasPorCliente(clienteId, pageable);
     }
 }
