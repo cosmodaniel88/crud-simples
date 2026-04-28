@@ -6,6 +6,9 @@ import com.books.crud.booksdCrud.item.Item;
 import com.books.crud.booksdCrud.item.RegistrarItemDTO;
 import com.books.crud.booksdCrud.livro.Livro;
 import com.books.crud.booksdCrud.livro.LivroRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,11 +55,20 @@ public class CompraService {
 
     }
 
-    public List<CompraResponseDTO> getComprasPorCliente(Long clienteId){
+    public Page<CompraResponseDTO> getComprasPorCliente(Long clienteId, Pageable pageable){
         if(!clienteRepository.existsById(clienteId)){
             throw new NullPointerException("Cliente não encontrado");
         }
-        return compraRepository.findByClienteId(clienteId).stream().map(compraMapper::paraResponseDTO).toList();
+
+        int tamanhoMaximo = Math.min(pageable.getPageSize(), 50);
+
+        Pageable customPageable = PageRequest.of(
+                pageable.getPageNumber(),
+                tamanhoMaximo,
+                pageable.getSort()
+        );
+
+        return compraRepository.findByClienteId(clienteId, customPageable).map(compraMapper::paraResponseDTO);
 
     }
 
