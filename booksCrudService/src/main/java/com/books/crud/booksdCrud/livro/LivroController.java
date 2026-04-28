@@ -4,12 +4,14 @@ import com.books.crud.booksdCrud.autor.AutorAtualizarDTO;
 import com.books.crud.booksdCrud.autor.AutorCriarDTO;
 import com.books.crud.booksdCrud.autor.AutorResponseDTO;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/livro")
+@RequestMapping("/livros")
 public class LivroController {
 
     private final  LivroService livroService;
@@ -19,8 +21,8 @@ public class LivroController {
 
     //Listar todos os livros'
     @GetMapping()
-    public List<LivroResponseDTO> getTodosOsLivros(){
-        return livroService.getTodosOsLivros();
+    public Page<LivroResponseDTO> getTodosOsLivros(Pageable pageable) {
+        return livroService.getTodosOsLivros(pageable);
     }
 
     //Buscar autor por id
