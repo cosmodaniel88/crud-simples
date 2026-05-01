@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  /* 🔴 Primary */
+  --primary-500: #921A1D;
+  --primary-400: #A83235;
+  --primary-300: #C04A4D;
+  --primary-200: #D87274;
+  --primary-100: #F2A6A8;
+
+  /* 🟠 Secondary */
+  --secondary-500: #F97316;
+  --secondary-400: #FB8C3A;
+  --secondary-300: #FDA663;
+  --secondary-200: #FEC08E;
+  --secondary-100: #FFE0C2;
+
+  /* 🟢 Accent */
+  --accent-500: #22C55E;
+  --accent-400: #4ADE80;
+  --accent-300: #86EFAC;
+  --accent-200: #BBF7D0;
+  --accent-100: #DCFCE7;
+
+  /* ⚫ Neutros */
+  --gray-500: #1F2937;
+  --gray-400: #374151;
+  --gray-300: #6B7280;
+  --gray-200: #D1D5DB;
+  --gray-100: #F9FAFB;
+}
