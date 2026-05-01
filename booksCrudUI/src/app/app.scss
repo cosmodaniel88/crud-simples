@@ -30,8 +30,6 @@
 }
 
 .sidenav{
-    padding: 1em;
-    background: linear-gradient(to bottom, var(--primary-400) 50%, var(--primary-300));
     grid-area: sidenav;
     border-radius: 10px;
 
@@ -39,7 +37,7 @@
 
 .content{
     grid-area: content;
-    background: var(--gray-200);
+    background: var(--gray-100);
     padding: 1em;
     border-radius: 10px;
 }
