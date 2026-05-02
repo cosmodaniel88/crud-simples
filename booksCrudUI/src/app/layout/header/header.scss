@@ -1,3 +1,24 @@
-.sidenav{
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-right: 1em;
+    padding-left: 1em;
     background-color: pink;
+    border-radius: 10px;
+}
+
+.menu{
+    cursor: pointer;
+
+}
+
+.profile{
+    overflow: hidden;
+    background-color: aqua;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }
