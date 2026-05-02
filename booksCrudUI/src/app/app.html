@@ -1,4 +1,4 @@
-<div class="layout">
+<div class="layout" [ngClass]="{'closed-sidenav': !isOpen(), 'expanded-sidenav': isOpen()}">
 
   <div class="header">
     <app-header></app-header>

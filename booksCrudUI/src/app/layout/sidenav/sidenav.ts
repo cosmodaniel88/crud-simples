@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LayoutService } from '../layout-service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class Sidenav {
 
+  private layout = inject(LayoutService);
+
+  isOpen = this.layout.sidenavOpen;
 }
