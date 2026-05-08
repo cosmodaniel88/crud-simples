@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('booksCrudUI');
-  private laytou = inject(LayoutService);
+  private layout = inject(LayoutService);
 
-   isOpen = this.laytou.sidenavOpen;
+   isOpen = this.layout.sidenavOpen;
 }
