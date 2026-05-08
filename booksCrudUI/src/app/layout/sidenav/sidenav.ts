@@ -1,15 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { LayoutService } from '../layout-service';
+import { Menu } from "../menu/menu";
 
 @Component({
   selector: 'app-sidenav',
-  imports: [],
+  imports: [Menu],
   templateUrl: './sidenav.html',
   styleUrl: './sidenav.scss',
 })
 export class Sidenav {
 
-  private layout = inject(LayoutService);
 
-  isOpen = this.layout.sidenavOpen;
 }

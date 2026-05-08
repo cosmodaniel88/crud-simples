@@ -1,0 +1,19 @@
+<div class="menu">
+
+    @for(item of items; track item.label){
+
+    @if(!isOpen()){
+    <li (click)="item.command" class="custom-menu-option pt-1">
+        <i [class]="item.icon" class="pt-1 pb-2 pr-1 pl-1"> </i>
+    </li>
+    }
+
+    @else {
+    <li (click)="item.command" class="custom-menu-option p-1">
+        <i [class]="item.icon" class="icon-custom-style-expanded"> </i>
+        <span>{{item.label}}</span>
+    </li>
+    }
+    }
+
+</div>

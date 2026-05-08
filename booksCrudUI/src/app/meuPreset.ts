@@ -39,5 +39,20 @@ export const MeuTema = definePreset(Aura, {
             }
         }
 
+    },
+    components:{
+        menu:{
+            colorScheme:{
+                light:{
+                    root:{
+                        
+
+                    },
+                    item:{
+                        
+                    }
+                }
+            }
+        }
     }
 });

@@ -1,0 +1,68 @@
+.menu {
+    padding: .5em;
+    flex-direction: column;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.custom-menu-option {
+    color: var(--accent-100);
+    cursor: pointer;
+    border-radius: 5px;
+    list-style: none;
+
+
+}
+
+.custom-menu-option-closed {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: var(--accent-100);
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.custom-menu-option:hover {
+    background-color: var(--primary-300);
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+
+
+}
+
+.icon-custom-style-expanded {
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.pt-1 {
+    padding-top: 1em;
+}
+
+.pb-1 {
+    padding-bottom: 1em;
+}
+
+.pr-1 {
+    padding-right: 1em;
+}
+
+.pl-1 {
+    padding-left: 1em;
+}
+
+
+.pt-2 {
+    padding-top: 2em;
+}
+
+.pb-2 {
+    padding-bottom: 2em;
+}
+
+.p-1 {
+    padding: 1em;
+}

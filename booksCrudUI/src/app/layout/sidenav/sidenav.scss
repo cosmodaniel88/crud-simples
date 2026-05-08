@@ -1,6 +1,7 @@
 .sidenav {
     background: linear-gradient(to bottom, var(--primary-400) 50%, var(--primary-300));
     height: 100%;
+    max-width: 100%;
     border-radius: 10px;
-    padding: .5em;
+    overflow: hidden;
 }
