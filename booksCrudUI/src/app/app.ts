@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Sidenav, CommonModule],
+  imports: [Header, Sidenav, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
