@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { LayoutService } from '../layout-service';
+import { RouterLink } from "@angular/router";
 @Component({
     selector: 'app-menu',
-    imports: [MenuModule],
+    imports: [MenuModule, RouterLink],
     templateUrl: './menu.html',
     styleUrl: './menu.scss',
 })
@@ -17,9 +18,9 @@ export class Menu {
 
     ngOnInit() {
         this.items = [
-            { label: 'Início', icon: 'pi pi-home' },
-            { label: 'Clientes', icon: 'pi pi-users' },
-            { label: 'Livros', icon: 'pi pi-book' },
+            { label: 'Início', icon: 'pi pi-home', routerLink:'/'},
+            { label: 'Clientes', icon: 'pi pi-users', routerLink:'/clientes' },
+            { label: 'Livros', icon: 'pi pi-book', routerLink:'/livros' },
         ];
     }
 

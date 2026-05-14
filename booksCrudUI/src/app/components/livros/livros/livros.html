@@ -1,0 +1,55 @@
+@if(livroService.livrosResource.isLoading()){
+<div class="card">
+    <p-table [value]="getAllLivros() || []" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>Nome</th>
+                <th>cpf</th>
+                <th>cpf</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-product>
+            <tr>
+                <td><p-skeleton /></td>
+                <td><p-skeleton /></td>
+                <td><p-skeleton /></td>
+                <td><p-skeleton /></td>
+                <td><p-skeleton /></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+}
+
+@if(livroService.livrosResource.error()){
+    <div>erro</div>
+}
+
+@if(livroService.livrosResource.hasValue()){
+<div class="card">
+    <p-table [value]="getAllLivros() || []" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                <th></th>
+                <th>id</th>
+                <th>Nome</th>
+                <th>descricao</th>
+                <th>estoque</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-livro>
+            <tr>
+                <td>
+                    <p-avatar image="{{livro.capa}}"/>
+                </td>
+                <td>{{ livro.id }}</td>
+                <td>{{ livro.nome }}</td>
+                <td>{{ livro.descricao }}</td>
+                <td>{{ livro.estoque ?? '-'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+}
