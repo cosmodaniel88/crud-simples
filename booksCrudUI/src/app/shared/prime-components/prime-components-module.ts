@@ -4,7 +4,7 @@ import { TableModule } from 'primeng/table';
 import { SkeletonModule } from 'primeng/skeleton';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
-
+import { CardModule } from 'primeng/card';
 @NgModule({
   declarations: [],
   exports: [
@@ -12,7 +12,8 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     SkeletonModule,
     AvatarModule,
-    ButtonModule
+    ButtonModule,
+    CardModule
   ]
 })
 export class PrimeComponentsModule { }

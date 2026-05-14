@@ -1,0 +1,24 @@
+.container{
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.card-foto{
+background-color: pink;
+grid-column: span 1;
+}
+
+.informacoes-perfil{
+background-color: red;
+grid-column: span 2;
+}
+
+.card-compras{
+background-color: purple;
+grid-column: span 3;
+
+}
