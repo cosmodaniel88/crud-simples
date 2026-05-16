@@ -52,7 +52,7 @@
                 <td>{{ cliente.cpf }}</td>
                 <td>{{ cliente.cpf }}</td>
                 <td>{{ cliente.dataNascimento | date:'dd/MM/yyyy'}}</td>
-                <td> <p-button icon="pi pi-home"></p-button> </td>
+                <td> <p-button icon="pi pi-home" (onClick)="verDetalhes(cliente.id)"></p-button> </td>
 
             </tr>
         </ng-template>

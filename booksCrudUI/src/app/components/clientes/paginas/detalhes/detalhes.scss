@@ -1,24 +1,59 @@
-.container{
-    background-color: green;
+.container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     height: 100%;
     overflow: hidden;
 
 }
 
-.card-foto{
-background-color: pink;
-grid-column: span 1;
+.card-foto {
+    grid-column: span 1;
+    padding: 1em;
 }
 
-.informacoes-perfil{
-background-color: red;
-grid-column: span 2;
+.informacoes-perfil {
+    grid-column: span 2;
+    padding: 1em;
 }
 
-.card-compras{
-background-color: purple;
-grid-column: span 3;
+.card-compras {
+    grid-column: span 3;
+    grid-row: span 2;
+    padding: 1em;
+
+}
+
+.informacoes-perfil-content {
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    gap: 5em;
+}
+
+.main-box {
+        max-width: 20%;
+        max-height: 30%;
+        padding: .5em;
+        overflow: hidden;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+}
+
+.field {
+font-weight: 500;
+
+
+}
+.content{
+    border: 1px solid rgb(223, 223, 223);
+        background-color: var(--gray-100);
+
+    border-radius: 5px;
+    padding: .5em;
 
 }
