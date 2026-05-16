@@ -5,6 +5,8 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { BadgeModule } from 'primeng/badge';
+import { OverlayBadgeModule } from 'primeng/overlaybadge';
 @NgModule({
   declarations: [],
   exports: [
@@ -13,7 +15,9 @@ import { CardModule } from 'primeng/card';
     SkeletonModule,
     AvatarModule,
     ButtonModule,
-    CardModule
+    CardModule,
+    BadgeModule,
+    OverlayBadgeModule
   ]
 })
 export class PrimeComponentsModule { }

@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { PrimeComponentsModule } from '../../shared/prime-components/prime-components-module';
 import { ICliente } from './interfaces/cliente.interface';
 import { ClienteService } from './services/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes',
@@ -12,6 +13,7 @@ import { ClienteService } from './services/cliente.service';
 export class Clientes {
 
   clientesService = inject(ClienteService);
+  private router = inject(Router)
 
   public paginas = computed(() => {
     const total = this.clientesService.clientesResource.value()?.totalPages ?? 0;
@@ -20,6 +22,11 @@ export class Clientes {
 
   public getAllClientes():ICliente[] | undefined{
     return this.clientesService.clientesResource.value()?.content;
+  }
+
+  verDetalhes(id: number):void{
+    this.router.navigate(['clientes/detalhes', id]);
+
   }
 
 

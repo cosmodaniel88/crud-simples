@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams, httpResource } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, Signal, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICliente, Pageable } from '../interfaces/cliente.interface';
 
@@ -22,6 +22,15 @@ export class ClienteService {
       size: this.size()
     }
   }))
+
+  getCliente(id: Signal<string | undefined | null>){
+    return httpResource<ICliente>(()=> {
+      const clienteId = id();
+      if(!clienteId) return undefined;
+
+      return {url: `${this.api}/${clienteId}`}
+    });
+  }
 
   
 

@@ -1,5 +1,70 @@
 <div class="container">
-    <div class="card-foto">teste</div>
-    <div class="informacoes-perfil">teste</div>
-    <div class="card-compras">teste</div>
+
+    @if(clienteResource.value(); as cliente){
+
+    <div class="card-foto">
+        <app-detalhes-perfil [cliente]="cliente" ></app-detalhes-perfil>
+    </div>
+    <div class="informacoes-perfil">
+
+
+
+        <div class="informacoes-perfil-content">
+
+            <div class="main-box">
+                <p class="field">Nome</p>
+                <div class="content">
+                    {{cliente.nome}}
+                </div>
+            </div>
+
+
+
+            <div class="main-box">
+                <p class="field">CPF</p>
+                <div class="content">
+                    {{cliente.cpf}}
+                </div>
+            </div>
+
+            <div class="main-box">
+                <p class="field">Nascimento</p>
+                <div class="content">
+                    {{cliente.dataNascimento | date:'dd/MMMM/yyyy'}}
+                </div>
+            </div>
+
+            
+
+        </div>
+
+
+    </div>
+    }
+
+
+    <div class="card-compras">
+        <div class="card">
+            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template #header>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-product>
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.quantity }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+
 </div>

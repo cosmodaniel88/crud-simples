@@ -1,1 +1,12 @@
-<p>detalhes-perfil works!</p>
+<div class="container">
+    @if(cliente(); as c){
+    <p-avatar shape="circle" size="xlarge" [style]="{'height':'3em', 'width':'3em'}"
+        image="{{c.foto}}"></p-avatar>
+    <p class="profile-name">{{c.nome}}</p>
+
+    <p-badge value="ativo" severity="success"/>
+    }
+    @else {
+        <dialog>carregando</dialog>
+    }
+</div>
