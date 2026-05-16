@@ -4,7 +4,7 @@
         image="{{c.foto}}"></p-avatar>
     <p class="profile-name">{{c.nome}}</p>
 
-    <p-badge value="ativo" severity="success"/>
+    <p-badge [value]="badgeConfig().value" [severity]="badgeConfig().severity"/>
     }
     @else {
         <dialog>carregando</dialog>
