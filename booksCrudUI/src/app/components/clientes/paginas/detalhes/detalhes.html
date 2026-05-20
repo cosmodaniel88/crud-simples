@@ -3,7 +3,7 @@
     @if(clienteResource.value(); as cliente){
 
     <div class="card-foto">
-        <app-detalhes-perfil [cliente]="cliente" ></app-detalhes-perfil>
+        <app-detalhes-perfil [cliente]="cliente"></app-detalhes-perfil>
     </div>
     <div class="informacoes-perfil">
 
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            
+
 
         </div>
 
@@ -42,29 +42,28 @@
     </div>
     }
 
+    @if(comprasClienteResource.value(); as compras){
 
     <div class="card-compras">
         <div class="card">
-            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+            <p-table [value]="compras.content || []" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template #header>
                     <tr>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
+                        <th>Id</th>
+                        <th>Valor</th>
+                        <th>Data da compra</th>
                     </tr>
                 </ng-template>
-                <ng-template #body let-product>
+                <ng-template #body let-compra>
                     <tr>
-                        <td>{{ product.code }}</td>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.category }}</td>
-                        <td>{{ product.quantity }}</td>
+                        <td>{{ compra.id }}</td>
+                        <td>{{ compra.valorTotalCompra | currency:'BRL'}}</td>
+                        <td>{{ compra.momentoDaCompra | date}}</td>
                     </tr>
                 </ng-template>
             </p-table>
         </div>
     </div>
-
+    }
 
 </div>

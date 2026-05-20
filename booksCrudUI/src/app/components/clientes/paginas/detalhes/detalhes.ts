@@ -6,6 +6,8 @@ import { ICliente } from '../../interfaces/cliente.interface';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
+import { ComprasService } from '../../../compras/compras-service';
+import { ICompras } from '../../../compras/compras';
 @Component({
   selector: 'app-detalhes',
   imports: [DetalhesPerfil, PrimeComponentsModule],
@@ -13,17 +15,23 @@ import { map } from 'rxjs';
   styleUrl: './detalhes.scss',
 })
 export class Detalhes {
+ 
 
   private route = inject(ActivatedRoute)
   private clienteService = inject(ClienteService)
+  private comprasService = inject(ComprasService)
+
+  public compras = signal<ICompras[] | undefined>
 
   private id = toSignal(
     this.route.paramMap.pipe(map(p => p.get('id')))
   );
 
   clienteResource = this.clienteService.getCliente(this.id);
+  
 
-  products = [
+  comprasClienteResource = this.comprasService.getComprasPorCliente(this.id);
 
-  ]
+
 }
+
