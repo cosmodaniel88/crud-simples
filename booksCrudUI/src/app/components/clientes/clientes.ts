@@ -1,8 +1,10 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, Signal } from '@angular/core';
 import { PrimeComponentsModule } from '../../shared/prime-components/prime-components-module';
 import { ICliente } from './interfaces/cliente.interface';
 import { ClienteService } from './services/cliente.service';
 import { Router } from '@angular/router';
+import { ComprasService } from '../compras/compras-service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-clientes',
@@ -13,6 +15,7 @@ import { Router } from '@angular/router';
 export class Clientes {
 
   clientesService = inject(ClienteService);
+  comprasService = inject(ComprasService);
   private router = inject(Router)
 
   public paginas = computed(() => {
@@ -28,6 +31,8 @@ export class Clientes {
     this.router.navigate(['clientes/detalhes', id]);
 
   }
+
+
 
 
 }
