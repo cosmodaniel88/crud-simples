@@ -1,5 +1,5 @@
+<p-card header="Livros">
 @if(livroService.livrosResource.isLoading()){
-<div class="card">
     <p-table [value]="getAllLivros() || []" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template #header>
             <tr>
@@ -20,7 +20,6 @@
             </tr>
         </ng-template>
     </p-table>
-</div>
 }
 
 @if(livroService.livrosResource.error()){
@@ -29,7 +28,7 @@
 
 @if(livroService.livrosResource.hasValue()){
 <div class="card">
-    <p-table [value]="getAllLivros() || []" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [rowHover]="true" [value]="getAllLivros() || []" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template #header>
             <tr>
                 <th></th>
@@ -53,3 +52,5 @@
     </p-table>
 </div>
 }
+
+</p-card>
