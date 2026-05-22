@@ -40,16 +40,21 @@ export const MeuTema = definePreset(Aura, {
         }
 
     },
-    components:{
-        menu:{
-            colorScheme:{
-                light:{
-                    root:{
-                        
+    components: {
+        datatable: {
+            colorScheme: {
+                light: {
+                    root: {
+                        borderColor: '{surface.100}',
 
                     },
-                    item:{
-                        
+                    headerCell: {
+                        padding: '1em',
+                    },
+                    row: {
+                        hoverColor: '#953',
+                    },
+                    bodyCell: {
                     }
                 }
             }
